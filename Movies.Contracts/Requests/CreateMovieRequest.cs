@@ -1,5 +1,5 @@
 ﻿namespace Movies.Contracts.Requests;
-
+using System.Collections;
 public class CreateMovieRequest
 {
     public required string Title { get; init; }

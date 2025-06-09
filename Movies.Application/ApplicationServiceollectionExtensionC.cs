@@ -1,5 +1,13 @@
-﻿namespace Movies.Application;
+﻿using Microsoft.Extensions.DependencyInjection;
+using Movies.Application.Repositories;
 
-public class ApplicationServiceollectionExtensionC
+namespace Movies.Application;
+
+public static class ApplicationServiceollectionExtensionC
 {
+    public static IServiceCollection AddApplicationServices(this IServiceCollection services)
+    {
+        services.AddSingleton<IMovieRepository, MovieRepository>();
+        return services;
+    }
 }
