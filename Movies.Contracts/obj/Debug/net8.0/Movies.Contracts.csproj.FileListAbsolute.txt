@@ -1,0 +1,12 @@
+C:\Users\hp\RiderProjects\RestApi\Movies.Contracts\bin\Debug\net8.0\Movies.Contracts.deps.json
+C:\Users\hp\RiderProjects\RestApi\Movies.Contracts\bin\Debug\net8.0\Movies.Contracts.dll
+C:\Users\hp\RiderProjects\RestApi\Movies.Contracts\bin\Debug\net8.0\Movies.Contracts.pdb
+C:\Users\hp\RiderProjects\RestApi\Movies.Contracts\obj\Debug\net8.0\Movies.Contracts.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\hp\RiderProjects\RestApi\Movies.Contracts\obj\Debug\net8.0\Movies.Contracts.AssemblyInfoInputs.cache
+C:\Users\hp\RiderProjects\RestApi\Movies.Contracts\obj\Debug\net8.0\Movies.Contracts.AssemblyInfo.cs
+C:\Users\hp\RiderProjects\RestApi\Movies.Contracts\obj\Debug\net8.0\Movies.Contracts.csproj.CoreCompileInputs.cache
+C:\Users\hp\RiderProjects\RestApi\Movies.Contracts\obj\Debug\net8.0\Movies.Contracts.sourcelink.json
+C:\Users\hp\RiderProjects\RestApi\Movies.Contracts\obj\Debug\net8.0\Movies.Contracts.dll
+C:\Users\hp\RiderProjects\RestApi\Movies.Contracts\obj\Debug\net8.0\refint\Movies.Contracts.dll
+C:\Users\hp\RiderProjects\RestApi\Movies.Contracts\obj\Debug\net8.0\Movies.Contracts.pdb
+C:\Users\hp\RiderProjects\RestApi\Movies.Contracts\obj\Debug\net8.0\ref\Movies.Contracts.dll

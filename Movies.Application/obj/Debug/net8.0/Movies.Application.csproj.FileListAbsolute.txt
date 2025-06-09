@@ -1,0 +1,13 @@
+C:\Users\hp\RiderProjects\RestApi\Movies.Application\bin\Debug\net8.0\Movies.Application.deps.json
+C:\Users\hp\RiderProjects\RestApi\Movies.Application\bin\Debug\net8.0\Movies.Application.dll
+C:\Users\hp\RiderProjects\RestApi\Movies.Application\bin\Debug\net8.0\Movies.Application.pdb
+C:\Users\hp\RiderProjects\RestApi\Movies.Application\obj\Debug\net8.0\Movies.Application.csproj.AssemblyReference.cache
+C:\Users\hp\RiderProjects\RestApi\Movies.Application\obj\Debug\net8.0\Movies.Application.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\hp\RiderProjects\RestApi\Movies.Application\obj\Debug\net8.0\Movies.Application.AssemblyInfoInputs.cache
+C:\Users\hp\RiderProjects\RestApi\Movies.Application\obj\Debug\net8.0\Movies.Application.AssemblyInfo.cs
+C:\Users\hp\RiderProjects\RestApi\Movies.Application\obj\Debug\net8.0\Movies.Application.csproj.CoreCompileInputs.cache
+C:\Users\hp\RiderProjects\RestApi\Movies.Application\obj\Debug\net8.0\Movies.Application.sourcelink.json
+C:\Users\hp\RiderProjects\RestApi\Movies.Application\obj\Debug\net8.0\Movies.Application.dll
+C:\Users\hp\RiderProjects\RestApi\Movies.Application\obj\Debug\net8.0\refint\Movies.Application.dll
+C:\Users\hp\RiderProjects\RestApi\Movies.Application\obj\Debug\net8.0\Movies.Application.pdb
+C:\Users\hp\RiderProjects\RestApi\Movies.Application\obj\Debug\net8.0\ref\Movies.Application.dll
