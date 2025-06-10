@@ -1,5 +1,7 @@
-﻿using Movies.Application.Models;
+﻿using Microsoft.AspNetCore.Http.Features;
+using Movies.Application.Models;
 using Movies.Contracts.Requests;
+using Movies.Contracts.Responses;
 
 namespace RestApi.Mapping;
 
@@ -18,4 +20,23 @@ public static class ContractMapping
         return movie;
     }
     
+    public static MovieResponse MapToResponse (this Movie movie)
+    {
+        return new MovieResponse()
+        {
+            id =  movie.id,
+            Title = movie.Title,
+            YearOfRelease = movie.YearOfRelease,
+            Genres = movie.Genres.ToList()
+
+        };
+       
+    }
+    
+    public static MoviesResponse MapToResponse (this IEnumerable<Movie> movies)
+    {
+        return new MoviesResponse{
+           Items =  movies.Select(MapToResponse)
+           };
+    }
 }
