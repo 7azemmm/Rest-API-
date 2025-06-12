@@ -20,6 +20,20 @@ public static class ContractMapping
         return movie;
     }
     
+    public static Movie MapToMovie(this UpdateMovieRequest request , Guid Id)
+    {
+        var movie = new Movie()
+        {
+            id = Id,
+            Title = request.Title,
+            YearOfRelease = request.YearOfRelease,
+            Genres = request.Genres.ToList()
+
+        };
+        return movie;
+    }
+    
+   
     public static MovieResponse MapToResponse (this Movie movie)
     {
         return new MovieResponse()
