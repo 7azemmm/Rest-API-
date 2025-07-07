@@ -9,7 +9,6 @@ using RestApi.Mapping;
 namespace RestApi.Controllers;
 
 [ApiController]
-
 public class MovieController : ControllerBase
 {
     private readonly IMovieRepository _movieRepository;

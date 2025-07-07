@@ -1,0 +1,15 @@
+﻿services:
+  db:
+    container_name: DB-postgres
+    image: postgres:latest
+    environment:
+      POSTGRES_USER: hazem
+      POSTGRES_PASSWORD: 12345
+      PGDATA: /data/postgres
+    volumes:
+      - db:/data/postgres
+    ports:
+      - "5432:5432"
+    
+volumes:
+  db:
