@@ -38,3 +38,5 @@ C:\Users\hp\RiderProjects\RestApi\Movies.Api\obj\Debug\net8.0\Movies.Api.genrunt
 C:\Users\hp\RiderProjects\RestApi\Movies.Api\obj\Debug\net8.0\ref\Movies.Api.dll
 C:\Users\hp\RiderProjects\RestApi\Movies.Api\bin\Debug\net8.0\Dapper.dll
 C:\Users\hp\RiderProjects\RestApi\Movies.Api\bin\Debug\net8.0\Npgsql.dll
+C:\Users\hp\RiderProjects\RestApi\Movies.Api\bin\Debug\net8.0\FluentValidation.dll
+C:\Users\hp\RiderProjects\RestApi\Movies.Api\bin\Debug\net8.0\FluentValidation.DependencyInjectionExtensions.dll

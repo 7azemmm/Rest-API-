@@ -1,10 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "GkDEk1/MiXk=",
+  "dgSpecHash": "LSfzWu8Soos=",
   "success": true,
   "projectFilePath": "C:\\Users\\hp\\RiderProjects\\RestApi\\Movies.Api\\Movies.Api.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\hp\\.nuget\\packages\\dapper\\2.1.66\\dapper.2.1.66.nupkg.sha512",
+    "C:\\Users\\hp\\.nuget\\packages\\fluentvalidation\\12.0.0\\fluentvalidation.12.0.0.nupkg.sha512",
+    "C:\\Users\\hp\\.nuget\\packages\\fluentvalidation.dependencyinjectionextensions\\12.0.0\\fluentvalidation.dependencyinjectionextensions.12.0.0.nupkg.sha512",
     "C:\\Users\\hp\\.nuget\\packages\\microsoft.aspnetcore.openapi\\8.0.12\\microsoft.aspnetcore.openapi.8.0.12.nupkg.sha512",
     "C:\\Users\\hp\\.nuget\\packages\\microsoft.extensions.apidescription.server\\6.0.5\\microsoft.extensions.apidescription.server.6.0.5.nupkg.sha512",
     "C:\\Users\\hp\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\8.0.0\\microsoft.extensions.dependencyinjection.abstractions.8.0.0.nupkg.sha512",

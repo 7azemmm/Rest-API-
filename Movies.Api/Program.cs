@@ -1,5 +1,6 @@
 using Movies.Application;
 using Movies.Application.Database;
+using RestApi.Mapping;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -21,8 +22,10 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 app.UseAuthorization();
+
+app.UseMiddleware<ValidationMappingMiddleware>();
+app.MapControllers();
 var DbInitializer = app.Services.GetRequiredService<DbInitializer>();
 await DbInitializer.InitializeAsync();
-app.MapControllers();
 app.Run();
 
