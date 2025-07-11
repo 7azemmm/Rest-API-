@@ -1,0 +1,89 @@
+# Build results
+bin/
+obj/
+out/
+[Ll]og/
+*.log
+
+# User-specific files
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# Rider/VSCode/VS for Mac
+.idea/
+.vscode/
+.vscode/*
+
+# ASP.NET Scaffolding
+ScaffoldingReadMe.txt
+
+# DotCover
+*.dotCover
+
+# Others
+*.ncrunch*
+*.localhistory
+*.sln.ide
+
+# Auto-generated files
+*.generated.cs
+*.g.cs
+*.AssemblyInfo.cs
+
+# NuGet packages
+*.nupkg
+*.snupkg
+*.nuspec
+*.psmdcp
+packages/
+project.lock.json
+project.fragment.lock.json
+artifacts/
+
+# Visual Studio Code
+.history/
+.vscode/
+
+# Visual Studio
+.vs/
+*.csproj.user
+*.dbmdl
+
+# Temporary files
+~$*
+*.tmp
+*.bak
+*.swp
+*.swo
+
+# Configuration
+appsettings.Development.json
+appsettings.Local.json
+appsettings.*.json
+
+# Docker
+**/docker-compose.override.yml
+.dockerignore
+
+# Logs and database
+*.log
+*.sql
+*.sqlite
+
+# Entity Framework Migrations (optional, if auto-generated)
+Migrations/
+
+# JetBrains Rider
+.idea/
+
+# ReSharper
+_ReSharper*/
+*.DotSettings.user
+
+# Coverage Reports
+coverage/
+TestResults/
+*.coverage
+*.coveragexml
