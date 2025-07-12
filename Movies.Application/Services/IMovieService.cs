@@ -2,11 +2,11 @@
 using Movies.Application.Models;
 public interface IMovieService
 {
-    public Task<IEnumerable<Movie>> GetAllAsync();
-    public Task<Movie?> GetByIdAsync(Guid id);
+    public Task<IEnumerable<Movie>> GetAllAsync(CancellationToken cancellationToken =default );
+    public Task<Movie?> GetByIdAsync(Guid id , CancellationToken cancellationToken =default);
     
-    public Task<Movie?> GetBySlugAsync(string slug);
-    public Task<bool> CreateAsync(Movie movie);
-    public Task<Movie?> UpdateAsync(Movie movie);
-    public Task<bool> DeleteAsync(Guid id);
+    public Task<Movie?> GetBySlugAsync(string slug , CancellationToken cancellationToken =default);
+    public Task<bool> CreateAsync(Movie movie , CancellationToken cancellationToken =default);
+    public Task<Movie?> UpdateAsync(Movie movie , CancellationToken cancellationToken =default);
+    public Task<bool> DeleteAsync(Guid id , CancellationToken cancellationToken =default);
 }
