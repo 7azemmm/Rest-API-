@@ -11,6 +11,11 @@ public class MovieResponse
 
     public string slug { get; set; }
     public required int YearOfRelease { get; set; }
+    
+    public int? userRating { get; init; }
+    
+    public float? Rating { get; init; }
+    
     public required IEnumerable<string> Genres { get; set; } = Enumerable.Empty<string>();
     
     public MovieResponse(){}
