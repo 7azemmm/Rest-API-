@@ -22,20 +22,20 @@ public class MovieController : ControllerBase
     }
 
     [HttpPost(ApiEndpoints.Movies.create)]
-    public async Task<IActionResult> Create([FromBody] CreateMovieRequest request)
+    public async Task<IActionResult> Create([FromBody] CreateMovieRequest request , CancellationToken token)
     {
         var movie = request.MapToMovie();
-
-        await _movieService.CreateAsync(movie);
+        await _movieService.CreateAsync(movie , token);
         return CreatedAtAction(nameof(Get), new { idOrslug = movie.id }, movie);
         // return Created($"{ApiEndpoints.Movies.create}/{movie.id}", movie);
     }
     [HttpGet(ApiEndpoints.Movies.get)]
-    public async Task<IActionResult> Get([FromRoute] string idOrslug)
+    public async Task<IActionResult> Get([FromRoute] string idOrslug , CancellationToken token)
     {
+        var userId = HttpContext.GetUserId();
         var movie = Guid.TryParse(idOrslug , out var id ) ? 
-                 await _movieService.GetByIdAsync(id) : 
-                 await _movieService.GetBySlugAsync(idOrslug);
+                 await _movieService.GetByIdAsync(id ,token , userId) : 
+                 await _movieService.GetBySlugAsync(idOrslug ,token, userId);
         if (movie == null)
         {
             return NotFound();
@@ -45,18 +45,20 @@ public class MovieController : ControllerBase
     }
 
     [HttpGet(ApiEndpoints.Movies.getall)]
-    public async Task<IActionResult> GetAll()
+    public async Task<IActionResult> GetAll(CancellationToken token)
     {
-        var movies = await _movieService.GetAllAsync();
+        var userId = HttpContext.GetUserId();
+        var movies = await _movieService.GetAllAsync(token , userId);
         var response = movies.MapToResponse();
         return Ok(response);
     }
     
     [HttpPut(ApiEndpoints.Movies.update)]
-    public async Task<IActionResult> Update([FromBody] UpdateMovieRequest request ,[FromRoute] Guid id)
+    public async Task<IActionResult> Update([FromBody] UpdateMovieRequest request ,[FromRoute] Guid id , CancellationToken token )
     {
+        var userId = HttpContext.GetUserId();
         var movie = request.MapToMovie(id);
-        var checkUpdateMovie = await _movieService.UpdateAsync(movie);
+        var checkUpdateMovie = await _movieService.UpdateAsync(movie , token , userId);
         if (checkUpdateMovie is null)
         {
             return NotFound();

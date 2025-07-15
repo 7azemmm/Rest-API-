@@ -14,19 +14,19 @@ public class MovieService : IMovieService
         _movieRepository = movieRepository;
         _movievalidator = validator;
     }
-    public Task<IEnumerable<Movie>> GetAllAsync(CancellationToken cancellationToken =default)
+    public Task<IEnumerable<Movie>> GetAllAsync(CancellationToken cancellationToken =default , Guid? userId = default)
     {
-        return _movieRepository.GetAllAsync(cancellationToken);
+        return _movieRepository.GetAllAsync(cancellationToken , userId);
     }
 
-    public Task<Movie?> GetByIdAsync(Guid id , CancellationToken cancellationToken =default)
+    public Task<Movie?> GetByIdAsync(Guid id , CancellationToken cancellationToken =default , Guid? userId = default)
     {
-        return _movieRepository.GetByIdAsync(id , cancellationToken);
+        return _movieRepository.GetByIdAsync(id , cancellationToken , userId);
     }
 
-    public Task<Movie?> GetBySlugAsync(string slug , CancellationToken cancellationToken =default)
+    public Task<Movie?> GetBySlugAsync(string slug , CancellationToken cancellationToken =default , Guid? userId = default)
     {
-        return _movieRepository.GetBySlugAsync(slug , cancellationToken);
+        return _movieRepository.GetBySlugAsync(slug , cancellationToken , userId);
     }
 
     public async Task<bool> CreateAsync(Movie movie , CancellationToken cancellationToken =default)
@@ -35,7 +35,7 @@ public class MovieService : IMovieService
         return await _movieRepository.CreateAsync(movie , cancellationToken);
     }
 
-    public async Task<Movie?> UpdateAsync(Movie movie , CancellationToken cancellationToken =default)
+    public async Task<Movie?> UpdateAsync(Movie movie , CancellationToken cancellationToken =default , Guid? userId = default)
     {
         await _movievalidator.ValidateAndThrowAsync(movie);
         var MovieExist = await _movieRepository.ExistbyIdAsync(movie.id , cancellationToken);
@@ -43,7 +43,7 @@ public class MovieService : IMovieService
         {
             return null;
         }
-         await _movieRepository.UpdateAsync(movie);
+         await _movieRepository.UpdateAsync(movie , cancellationToken, userId);
          return movie;
     }
 
