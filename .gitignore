@@ -2,6 +2,12 @@
 bin/
 obj/
 out/
+bin/Debug/net8.0/
+obj/Debug/net8.0/
+ref/
+refint/
+
+# Logs
 [Ll]og/
 *.log
 
@@ -11,7 +17,7 @@ out/
 *.userosscache
 *.sln.docstates
 
-# Rider/VSCode/VS for Mac
+# IDEs
 .idea/
 .vscode/
 .vscode/*
@@ -44,7 +50,6 @@ artifacts/
 
 # Visual Studio Code
 .history/
-.vscode/
 
 # Visual Studio
 .vs/
@@ -58,7 +63,7 @@ artifacts/
 *.swp
 *.swo
 
-# Configuration
+# Configuration files
 appsettings.Development.json
 appsettings.Local.json
 appsettings.*.json
@@ -67,12 +72,12 @@ appsettings.*.json
 **/docker-compose.override.yml
 .dockerignore
 
-# Logs and database
+# Database/Logs
 *.log
 *.sql
 *.sqlite
 
-# Entity Framework Migrations (optional, if auto-generated)
+# EF Migrations 
 Migrations/
 
 # JetBrains Rider

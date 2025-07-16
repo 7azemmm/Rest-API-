@@ -3,6 +3,8 @@ using Microsoft.AspNetCore.Mvc;
 using Movies.Api;
 using Movies.Application.Services;
 using Movies.Contracts.Requests;
+using Movies.Application.Models;
+using RestApi.Mapping;
 
 namespace RestApi.Controllers;
 
@@ -36,5 +38,16 @@ public class RatingController : ControllerBase
         var result = await _ratingService.DeleteMovieAsync(MovieId , UserId);
         return result ? Ok("ok deleted") : NotFound();
     }
+    
+    [Authorize(AuthConstants.TrustedMemberPolicyName)]
+    [HttpGet(ApiEndpoints.Rating.getUserRatings)]
+    public async Task<IActionResult> getUserRatings( CancellationToken token = default)
+    {
+        var UserId = HttpContext.GetUserId();
+        var ratings = await _ratingService.getUserRatingsAsync(UserId , token);
+        var ratingResponse = ratings.MapToResponse();
+        return Ok(ratingResponse);
+    }
+
     
 }

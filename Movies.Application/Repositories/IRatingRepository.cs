@@ -1,5 +1,5 @@
 ﻿namespace Movies.Application.Repositories;
-
+using Movies.Application.Models;
 public interface IRatingRepository
 {
     public Task<float?> getRatingAsync(Guid movieId, CancellationToken cancellationToken);
@@ -7,4 +7,7 @@ public interface IRatingRepository
     
     public Task<bool> RateMovieAsync(Guid movieId, int rating, Guid? userId, CancellationToken token = default);
     public Task<bool> DeleteMovieAsync(Guid movieId, Guid? userId, CancellationToken token = default);
+   
+    public Task<IEnumerable<MovieRatings>> getUserRatingsAsync(Guid? userId, CancellationToken token = default);
+
 }
