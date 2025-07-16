@@ -75,6 +75,6 @@ public class MovieController : ControllerBase
     public async Task<IActionResult> Delete([FromRoute] Guid id)
     {
         var DeletedMovie = await _movieService.DeleteAsync(id);
-        return DeletedMovie ? Ok() : NotFound();
+        return DeletedMovie ? Ok("movie deleted") : NotFound();
     }
 }
