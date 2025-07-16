@@ -37,7 +37,7 @@ public class RatingRepository : IRatingRepository
             """, new { movieId, userId }, cancellationToken: cancellationToken));
     }
 
-    public async Task<bool> RateMovieAsync(Guid movieId, int rating, Guid userId, CancellationToken token = default)
+    public async Task<bool> RateMovieAsync(Guid movieId, int rating, Guid? userId, CancellationToken token = default)
     {
         var connection = await _dbConnectionFactory.CreateConnectionAsync(token);
         var result = await connection.ExecuteAsync(new CommandDefinition("""

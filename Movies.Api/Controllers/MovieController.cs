@@ -47,6 +47,7 @@ public class MovieController : ControllerBase
     }
 
     [HttpGet(ApiEndpoints.Movies.getall)]
+    [Authorize(AuthConstants.AdminUserPolicyName)]
     public async Task<IActionResult> GetAll(CancellationToken token)
     {
         var userId = HttpContext.GetUserId();
