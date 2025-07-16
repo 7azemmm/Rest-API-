@@ -11,6 +11,9 @@ public partial class Movie
     public required int YearOfRelease { get; set; }
     public required List<string> Genres { get; set; } = new();
     
+    public int? userRating { get; set; }
+    
+    public float? Rating { get; set; }
     private string generateSlug()
     {
         var slugedTitle = SlugRegex().Replace(Title, string.Empty)

@@ -1,6 +1,7 @@
 ﻿using System.Runtime.InteropServices;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Movies.Api;
 using Movies.Application.Models;
 using Movies.Application.Repositories;
 using Movies.Application.Services;
@@ -11,7 +12,7 @@ using RestApi.Mapping;
 namespace RestApi.Controllers;
 
 [ApiController]
-[Authorize]
+
 public class MovieController : ControllerBase
 {
     private readonly IMovieService _movieService;
@@ -22,6 +23,7 @@ public class MovieController : ControllerBase
     }
 
     [HttpPost(ApiEndpoints.Movies.create)]
+    // [Authorize(AuthConstants.AdminUserPolicyName)]
     public async Task<IActionResult> Create([FromBody] CreateMovieRequest request , CancellationToken token)
     {
         var movie = request.MapToMovie();
@@ -56,9 +58,9 @@ public class MovieController : ControllerBase
     [HttpPut(ApiEndpoints.Movies.update)]
     public async Task<IActionResult> Update([FromBody] UpdateMovieRequest request ,[FromRoute] Guid id , CancellationToken token )
     {
-        var userId = HttpContext.GetUserId();
+        var UserId = HttpContext.GetUserId();
         var movie = request.MapToMovie(id);
-        var checkUpdateMovie = await _movieService.UpdateAsync(movie , token , userId);
+        var checkUpdateMovie = await _movieService.UpdateAsync(movie , UserId , token );
         if (checkUpdateMovie is null)
         {
             return NotFound();
