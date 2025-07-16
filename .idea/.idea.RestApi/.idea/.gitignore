@@ -1,13 +1,94 @@
-﻿# Default ignored files
-/shelf/
-/workspace.xml
-# Rider ignored files
-/contentModel.xml
-/.idea.RestApi.iml
-/modules.xml
-/projectSettingsUpdater.xml
-# Editor-based HTTP Client requests
-/httpRequests/
-# Datasource local storage ignored files
-/dataSources/
-/dataSources.local.xml
+# Build results
+bin/
+obj/
+out/
+bin/Debug/net8.0/
+obj/Debug/net8.0/
+ref/
+refint/
+
+# Logs
+[Ll]og/
+*.log
+
+# User-specific files
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# IDEs
+.idea/
+.vscode/
+.vscode/*
+
+# ASP.NET Scaffolding
+ScaffoldingReadMe.txt
+
+# DotCover
+*.dotCover
+
+# Others
+*.ncrunch*
+*.localhistory
+*.sln.ide
+
+# Auto-generated files
+*.generated.cs
+*.g.cs
+*.AssemblyInfo.cs
+
+# NuGet packages
+*.nupkg
+*.snupkg
+*.nuspec
+*.psmdcp
+packages/
+project.lock.json
+project.fragment.lock.json
+artifacts/
+
+# Visual Studio Code
+.history/
+
+# Visual Studio
+.vs/
+*.csproj.user
+*.dbmdl
+
+# Temporary files
+~$*
+*.tmp
+*.bak
+*.swp
+*.swo
+
+# Configuration files
+appsettings.Development.json
+appsettings.Local.json
+appsettings.*.json
+
+# Docker
+**/docker-compose.override.yml
+.dockerignore
+
+# Database/Logs
+*.log
+*.sql
+*.sqlite
+
+# EF Migrations 
+Migrations/
+
+# JetBrains Rider
+.idea/
+
+# ReSharper
+_ReSharper*/
+*.DotSettings.user
+
+# Coverage Reports
+coverage/
+TestResults/
+*.coverage
+*.coveragexml
