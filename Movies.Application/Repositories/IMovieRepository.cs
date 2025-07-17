@@ -4,7 +4,7 @@ namespace Movies.Application.Repositories;
 
 public interface IMovieRepository
 {
-    public Task<IEnumerable<Movie>> GetAllAsync(CancellationToken cancellationToken =default , Guid? userId = default);
+    public Task<IEnumerable<Movie>> GetAllAsync(CancellationToken cancellationToken =default , GetAllMoviesOptions? options =default);
     public Task<Movie?> GetByIdAsync(Guid id , CancellationToken cancellationToken =default , Guid? userId = default);
     
     public Task<Movie?> GetBySlugAsync(string slug ,CancellationToken cancellationToken =default , Guid? userId = default);
