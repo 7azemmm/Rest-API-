@@ -1,44 +1,37 @@
-# Build results
 bin/
 obj/
 out/
 bin/Debug/net8.0/
 obj/Debug/net8.0/
+artifacts/
 ref/
 refint/
 
-# Logs
-[Ll]og/
 *.log
+[Ll]og/
+*.tmp
+*.bak
+*.swp
+*.swo
+~$*
 
-# User-specific files
-*.user
+.vs/
 *.suo
+*.user
+*.csproj.user
+*.dbmdl
 *.userosscache
 *.sln.docstates
+*.sln.ide
 
-# IDEs
 .idea/
 .vscode/
 .vscode/*
+.history/
 
-# ASP.NET Scaffolding
-ScaffoldingReadMe.txt
+_ReSharper*/
+*.DotSettings.user
 
-# DotCover
-*.dotCover
-
-# Others
-*.ncrunch*
-*.localhistory
-*.sln.ide
-
-# Auto-generated files
-*.generated.cs
-*.g.cs
-*.AssemblyInfo.cs
-
-# NuGet packages
 *.nupkg
 *.snupkg
 *.nuspec
@@ -46,49 +39,27 @@ ScaffoldingReadMe.txt
 packages/
 project.lock.json
 project.fragment.lock.json
-artifacts/
 
-# Visual Studio Code
-.history/
+ScaffoldingReadMe.txt
 
-# Visual Studio
-.vs/
-*.csproj.user
-*.dbmdl
+*.generated.cs
+*.g.cs
+*.AssemblyInfo.cs
 
-# Temporary files
-~$*
-*.tmp
-*.bak
-*.swp
-*.swo
-
-# Configuration files
-appsettings.Development.json
-appsettings.Local.json
-appsettings.*.json
-
-# Docker
-**/docker-compose.override.yml
-.dockerignore
-
-# Database/Logs
-*.log
-*.sql
-*.sqlite
-
-# EF Migrations 
 Migrations/
 
-# JetBrains Rider
-.idea/
-
-# ReSharper
-_ReSharper*/
-*.DotSettings.user
-
-# Coverage Reports
 coverage/
 TestResults/
 *.coverage
 *.coveragexml
+*.dotCover
+
+**/docker-compose.override.yml
+.dockerignore
+
+appsettings.Development.json
+appsettings.Local.json
+appsettings.*.json
+
+*.ncrunch*
+*.localhistory
