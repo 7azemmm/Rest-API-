@@ -53,6 +53,7 @@ public class MovieController : ControllerBase
     {
         var userId = HttpContext.GetUserId();
         var options = request.MapToOptions(userId);
+        Console.WriteLine(request.sortBy);
         var movies = await _movieService.GetAllAsync(token , options);
         var response = movies.MapToResponse();
         return Ok(response);

@@ -20,6 +20,8 @@ public class MovieService : IMovieService
     }
     public async Task<IEnumerable<Movie>> GetAllAsync(CancellationToken cancellationToken =default , GetAllMoviesOptions? options =default)
     {
+        Console.WriteLine(options.sortField);
+        Console.WriteLine(options.sortOrder);
          await _getAllMoviesOptionsValidator.ValidateAndThrowAsync(options);
         return await _movieRepository.GetAllAsync(cancellationToken , options);
     }

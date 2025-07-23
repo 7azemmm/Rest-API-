@@ -72,7 +72,12 @@ public static class ContractMapping
         return new GetAllMoviesOptions{
             title = request.title,
             YearOfRealease = request.Year,
-            UserId = userId
+            UserId = userId,
+            sortOrder = request.sortBy is null ? sortOrder.unsorted : request.sortBy.StartsWith('+') ? sortOrder.descending 
+                : sortOrder.ascending,
+            sortField = request.sortBy?.Trim('+','-')
+           
+            
         };
     }
 
