@@ -1,6 +1,8 @@
-﻿namespace Movies.Contracts.Requests;
+﻿using Movies.Contracts.Responses;
 
-public class GetAllMoviesRequest
+namespace Movies.Contracts.Requests;
+
+public class GetAllMoviesRequest : PageRequest
 {
     public required string? title { get; init; }
     public required int? Year { get; init; } 

@@ -8,6 +8,10 @@ public class GetAllMoviesOptions
     public required string? sortField { get; init; }
     
     public sortOrder? sortOrder { get; init; }
+    
+    public  int Page { get; init; } 
+       
+    public  int pageSize { get; init; }
 }
 
 public enum sortOrder

@@ -38,12 +38,15 @@ public class MovieRepository : IMovieRepository
                                                                            and myr.userid = @userId
                                                                        where (@title is null or m.title like ('%' || @title || '%'))
                                                                        and (@yearofRelease is null or m.yearofrelease = @yearofRelease)
-                                                                       group by id, userrating {orderclause}
+                                                                       group by id, userrating {orderclause} 
+                                                                       limit @PageSize offset @pageOffset
                                                                        """, new
         {
             userId = options.UserId,
             title = options.title,
-            yearofrelease = options.YearOfRealease
+            yearofrelease = options.YearOfRealease,
+            PageSize = options.pageSize,
+            pageOffset = (options.Page-1) * options.pageSize
         }, cancellationToken: token));
         
         return result.Select(x => new Movie
@@ -198,4 +201,20 @@ public class MovieRepository : IMovieRepository
                                                                                select count(1) from movies where id = @id
                                                                                """, new { id } , cancellationToken:token));
     }
+
+    public async Task<int> CountAsync(string? title, int? yearofrelease, CancellationToken token = default)
+    {
+        using var connection = await _connectionFactory.CreateConnectionAsync(token);
+        return await connection.QuerySingleAsync<int>(new CommandDefinition(
+            """
+            SELECT COUNT(id) 
+            FROM movies 
+            WHERE (@title IS NULL OR title ILIKE '%' || @title || '%') 
+              AND (@yearofrelease IS NULL OR yearofrelease = @yearofrelease)
+            """,
+            new { title, yearofrelease },
+            cancellationToken: token
+        ));
+    }
+
 }

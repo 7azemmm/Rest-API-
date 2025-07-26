@@ -50,10 +50,13 @@ public static class ContractMapping
        
     }
     
-    public static MoviesResponse MapToResponse (this IEnumerable<Movie> movies)
+    public static MoviesResponse MapToResponse (this IEnumerable<Movie> movies , int page , int pageSize , int totalcount)
     {
         return new MoviesResponse{
-           Items =  movies.Select(MapToResponse)
+           Items =  movies.Select(MapToResponse),
+           Page = page,
+           pageSize = pageSize,
+           total = totalcount
            };
     }
     
@@ -75,7 +78,9 @@ public static class ContractMapping
             UserId = userId,
             sortOrder = request.sortBy is null ? sortOrder.unsorted : request.sortBy.StartsWith('+') ? sortOrder.descending 
                 : sortOrder.ascending,
-            sortField = request.sortBy?.Trim('+','-')
+            sortField = request.sortBy?.Trim('+','-'),
+            Page = request.Page,
+            pageSize = request.pageSize
            
             
         };

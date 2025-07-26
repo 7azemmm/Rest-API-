@@ -9,4 +9,6 @@ public interface IMovieService
     public Task<bool> CreateAsync(Movie movie , CancellationToken cancellationToken =default);
     public Task<Movie?> UpdateAsync(Movie movie , Guid? userId = default , CancellationToken cancellationToken =default );
     public Task<bool> DeleteAsync(Guid id , CancellationToken cancellationToken =default);
+    public Task<int> CountAsync( string? title , int? yearofrelease, CancellationToken token =default);
+
 }

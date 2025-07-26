@@ -1,10 +1,10 @@
 ﻿namespace Movies.Contracts.Responses;
 
-public class PageSize
+public class PageRequest
 {
-    public required int Page { get; init; }
-    
-    public required int pageSize { get; init; }
-    
-    
+   public required int Page { get; init; } = 1;
+       
+       public required int pageSize { get; init; } = 10; 
+
+
 }

@@ -17,9 +17,9 @@ public class MovieController : ControllerBase
 {
     private readonly IMovieService _movieService;
 
-    public MovieController(IMovieService movieRepository)
+    public MovieController(IMovieService movieService)
     {
-        _movieService = movieRepository;
+        _movieService = movieService;
     }
 
     [HttpPost(ApiEndpoints.Movies.create)]
@@ -55,7 +55,8 @@ public class MovieController : ControllerBase
         var options = request.MapToOptions(userId);
         Console.WriteLine(request.sortBy);
         var movies = await _movieService.GetAllAsync(token , options);
-        var response = movies.MapToResponse();
+        var moviesCount = await _movieService.CountAsync(options.title, options.YearOfRealease , token);
+        var response = movies.MapToResponse(request.Page , request.pageSize , moviesCount);
         return Ok(response);
     }
     
