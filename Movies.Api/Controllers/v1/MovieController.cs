@@ -9,7 +9,7 @@ using Movies.Contracts.Requests;
 using Movies.Contracts.Responses;
 using RestApi.Mapping;
 
-namespace RestApi.Controllers;
+namespace RestApi.v1.Controllers;
 
 [ApiController]
 
@@ -22,7 +22,7 @@ public class MovieController : ControllerBase
         _movieService = movieService;
     }
 
-    [HttpPost(ApiEndpoints.Movies.create)]
+    [HttpPost(ApiEndpoints.v1.Movies.create)]
     // [Authorize(AuthConstants.AdminUserPolicyName)]
     public async Task<IActionResult> Create([FromBody] CreateMovieRequest request , CancellationToken token)
     {
@@ -31,7 +31,7 @@ public class MovieController : ControllerBase
         return CreatedAtAction(nameof(Get), new { idOrslug = movie.id }, movie);
         // return Created($"{ApiEndpoints.Movies.create}/{movie.id}", movie);
     }
-    [HttpGet(ApiEndpoints.Movies.get)]
+    [HttpGet(ApiEndpoints.v1.Movies.get)]
     public async Task<IActionResult> Get([FromRoute] string idOrslug , CancellationToken token)
     {
         var userId = HttpContext.GetUserId();
@@ -46,7 +46,7 @@ public class MovieController : ControllerBase
         return Ok(response);
     }
 
-    [HttpGet(ApiEndpoints.Movies.getall)]
+    [HttpGet(ApiEndpoints.v1.Movies.getall)]
     [Authorize(AuthConstants.AdminUserPolicyName)]
     public async Task<IActionResult> GetAll(
         [FromQuery] GetAllMoviesRequest request , CancellationToken token)
@@ -60,7 +60,7 @@ public class MovieController : ControllerBase
         return Ok(response);
     }
     
-    [HttpPut(ApiEndpoints.Movies.update)]
+    [HttpPut(ApiEndpoints.v1.Movies.update)]
     public async Task<IActionResult> Update([FromBody] UpdateMovieRequest request ,[FromRoute] Guid id , CancellationToken token )
     {
         var UserId = HttpContext.GetUserId();
@@ -75,7 +75,7 @@ public class MovieController : ControllerBase
 
     }
 
-    [HttpDelete(ApiEndpoints.Movies.delete)]
+    [HttpDelete(ApiEndpoints.v1.Movies.delete)]
     public async Task<IActionResult> Delete([FromRoute] Guid id)
     {
         var DeletedMovie = await _movieService.DeleteAsync(id);
