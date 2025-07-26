@@ -5,14 +5,19 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
 using Asp.Versioning;
+using Asp.Versioning.ApiExplorer;
+using Microsoft.Extensions.Options;
 using Movies.Api;
+using Movies.Api.Swagger;
+using RestApi.swagger;
+using Swashbuckle.AspNetCore.SwaggerGen;
 
 
 var builder = WebApplication.CreateBuilder(args);
 
 var config = builder.Configuration;
 builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
+builder.Services.AddSwaggerGen( x=> x.OperationFilter<SwaggerDefaultValues>());
 builder.Services.AddApplicationServices();
 builder.Services.AddControllers();
 builder.Services.AddDatabaseService(config["database:ConnectionString"]!);
@@ -23,7 +28,9 @@ builder.Services.AddApiVersioning(
         x.AssumeDefaultVersionWhenUnspecified = true;
         x.ReportApiVersions = true;
         x.ApiVersionReader = new MediaTypeApiVersionReader("api-version");
-    }).AddMvc();
+    }).AddMvc().AddApiExplorer();
+
+builder.Services.AddTransient<IConfigureOptions<SwaggerGenOptions>, ConfigureSwaggerOptions>();
 
 
 builder.Services.AddAuthentication(x =>
@@ -59,11 +66,25 @@ builder.Services.AddAuthorization(x =>
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
+
 if (app.Environment.IsDevelopment())
 {
+    var provider = app.Services.GetRequiredService<IApiVersionDescriptionProvider>();
+
     app.UseSwagger();
-    app.UseSwaggerUI();
+    app.UseSwaggerUI(x =>
+    {
+        foreach (var description in provider.ApiVersionDescriptions)
+        {
+            x.SwaggerEndpoint($"/swagger/{description.GroupName}/swagger.json", 
+                description.GroupName.ToUpperInvariant());
+        }
+
+        x.RoutePrefix = string.Empty;
+    });
 }
+
+
 
 app.UseHttpsRedirection();
 app.UseAuthentication();
