@@ -1,4 +1,5 @@
 ﻿using System.Runtime.InteropServices;
+using Asp.Versioning;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Movies.Api;
@@ -21,9 +22,12 @@ public class MovieController : ControllerBase
     {
         _movieService = movieService;
     }
+    
+    [ApiVersion(2.0)]
     [HttpGet(ApiEndpoints.v2.Movies.get)]
     public async Task<IActionResult> Get([FromRoute] string idOrslug , CancellationToken token)
     {
+        Console.WriteLine("hello from v2");
         var userId = HttpContext.GetUserId();
         var movie = Guid.TryParse(idOrslug , out var id ) ? 
                  await _movieService.GetByIdAsync(id ,token , userId) : 
